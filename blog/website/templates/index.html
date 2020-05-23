@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Texto do blog.</h1>
+
+    {{ name }}
+    <br /><br />
+    {{ lista_tecnologias }}
+
+    <ul>
+        {% for item in lista_tecnologias %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <br />
+    <ol>
+        {% for item in lista_tecnologias %}
+            {% if item == 'Python' %}
+                <li><b>{{ item }}</b></li>
+            {% else %}
+                <li>{{ item }}</li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</body>
+</html>
