@@ -4,7 +4,7 @@ from .models import Post
 
 #cria uma melhor visualizaçao dos registros no admin
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'sub_title', 'full_name', 'categories']
+    list_display = ['title', 'sub_title', 'full_name', 'categories', 'approved']
     # cria as visualizaões do dados cadastrados
 
     search_fields = ['title', 'sub_title'] # add item de pesquisa - lupa
@@ -13,6 +13,9 @@ class PostAdmin(admin.ModelAdmin):
     #fields = ['title']
     # este caso não apareceria mais o sub_title no admin
 
+    def get_queryset(self, request):
+        return Post.objects.filter(approved=True)
+    #função para filtos do admin
 
 admin.site.register(Post, PostAdmin)
 #isto add a model ao admin
