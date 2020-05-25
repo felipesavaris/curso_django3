@@ -8,7 +8,7 @@ def hello_blog(request):
         'Django', 'Python', 'Git', 'Htnl', 'Banco de Dados', 'Linux', 'Nginx',
         'Uwsgi', 'Systemctl'
     ]
-    list_posts = Post.objects.all()  # ou Post.objects.filter()
+    list_posts = Post.objects.filter(approved=True)  # ou Post.objects.all()
 
     data = {
         'name': 'Curso Django 3',

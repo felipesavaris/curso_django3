@@ -28,4 +28,8 @@ class Post(models.Model):
         return self.title + self.sub_title
         # adicionar o full_name no admin para visualizaçao
 
+    def get_category_label(self):
+        return self.get_categories_display()
+
+
     full_name.admin_order_field = 'title'
